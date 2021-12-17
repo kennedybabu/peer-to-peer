@@ -2,6 +2,7 @@ from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.fields import DateTimeField
 
 # Create your models here.
@@ -65,5 +66,23 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Rate(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    design_vote = models.IntegerField(default=0, validators=[MaxValueValidator(10), MinValueValidator(0)])
+    usability_vote = models.IntegerField(default=0, validators=[MaxValueValidator(10), MinValueValidator(0)])
+    content_vote = models.IntegerField(default=0, validators=[MaxValueValidator(10), MinValueValidator(0)])
+    comment = models.TextField()
+
+    def __str__(self):
+        return self.owner.username
+
+    @property
+    def average_score(self):
+        average = (self.design_vote + self.content_vote + self.usability_vote) /3
+        return average
+
 
 
