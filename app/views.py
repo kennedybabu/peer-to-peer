@@ -2,7 +2,7 @@
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from .models import Profile
+from .models import Profile, Project
 from django.contrib.auth.forms import UserCreationForm
 from .forms import NewProjectForm
 from django.contrib.auth import authenticate, login, logout
@@ -67,10 +67,6 @@ def view_profile(request, id):
         return redirect('home')
 
 
-# def profile(request):
-#     profiles = Profile.objects.all()
-#     return render(request, 'profile.html', {'profiles': profiles})
-
 
 def new_project(request):
     current_user = request.user
@@ -84,3 +80,8 @@ def new_project(request):
     else:
         form = NewProjectForm()
     return render(request, 'new_project.html', {'form':form})
+
+
+def projects(request):
+    projects = Project.objects.all()
+    return render(request, 'projects.html', {'projects':projects})
