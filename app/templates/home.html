@@ -1,0 +1,48 @@
+{% extends 'base.html' %}  
+
+{% block content %} 
+
+<section class="intro">
+    <div class="overlay">
+        <div class="overlay-text">
+            <h3>how well do you <span>stack</span> against your peers?</h3>
+        </div>
+        <div class="button-tray">
+            <a href="{% url 'new_project' %}">rate projects</a>
+            <a href="{% url 'login' %}">login</a>
+        </div>
+    </div>
+</section>
+<div class="intro-text">
+    <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia est hic nisi.</h4>
+    
+</div>
+<hr>
+<div class="container card-holder">
+    <div class="row card-deck">
+        <div class="card col-md-4">
+            <img class="card-img-top" src="https://res.cloudinary.com/dblrvhi8r/image/upload/v1639678942/undraw_content_structure_re_ebkv_nz3kow.svg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">design</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+
+        <div class="card col-md-4">
+            <img class="card-img-top" src="https://res.cloudinary.com/dblrvhi8r/image/upload/v1639678942/undraw_collab_-8-oes_p91mgs.svg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">content</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+
+        <div class="card col-md-4">
+            <img class="card-img-top" src="https://res.cloudinary.com/dblrvhi8r/image/upload/v1639678942/undraw_typewriter_re_u9i2_hnp3go.svg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">usability</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load bootstrap5 %} {% load static %}
+
+{% block content %} 
+
+
+<div class="container">
+    <div class="wrapper">
+        <form  action="{% url 'new_project' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+    
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-success btn-sm" value="Post">
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
