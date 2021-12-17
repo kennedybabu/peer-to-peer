@@ -120,6 +120,14 @@ span {
     max-width: 60%;
     margin: 0 auto;
 }
+
+.projects-container {
+    background-color: azure;
+}
+
+
+
+
 /* media queries */
 
 @media only screen and (max-width: 596px) {
