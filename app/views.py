@@ -26,21 +26,24 @@ def register_user(request):
     return render(request, 'registration/register_user.html', {'form':form})
 
     
-def login_user(request):
+def login_user(request):  
     if request.method == 'POST':
-       username = request.POST['username']
-       password = request.POST['password']
-       user = authenticate(request, username = username, password  = password) 
+        username = request.POST.get('username').lower()
+        password = request.POST.get('password')
 
-       if user is not None:
-           login(request, user)
-           return redirect('home')
-       else:
-           messages.success(request, 'There was a error in the request. Try again')
-           return redirect('login')
+        try:
+            user = Profile.objects.get(username = username)
+        except:
+            messages.error(request, 'user does not exist')
 
-    else:
-        return render(request, 'registration/register_user.html')
+        user = authenticate(request, username = username, password = password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Username or Password does not exist')
+        
+    return render(request, 'login.html')
 
 
 def logoutUser(request):

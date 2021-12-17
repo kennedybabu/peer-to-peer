@@ -107,10 +107,12 @@ span {
 
 .left {
     background-color: aqua;
+    height: 100%;
 }
 
 .reg-left {
     background-color: aqua;
+    /* height: 100%; */
 }
 
 
