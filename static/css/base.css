@@ -100,6 +100,24 @@ span {
 }
 
 
+.login-wrapper form {
+    max-width: 60%;
+}
+
+
+.left {
+    background-color: aqua;
+}
+
+.reg-left {
+    background-color: aqua;
+}
+
+
+.reg form {
+    max-width: 60%;
+    margin: 0 auto;
+}
 /* media queries */
 
 @media only screen and (max-width: 596px) {
