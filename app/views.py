@@ -89,13 +89,22 @@ def projects(request):
     projects = Project.objects.all()
     return render(request, 'projects.html', {'projects':projects})
 
+
 def rate_project(request, id):
+    current_user = request.user
     try:
         project = Project.objects.get(id = id)
     except ObjectDoesNotExist:
         raise Http404()
-    context = {
-        'project':project,
-    }
+    if request.method == 'POST':
+        form = RateProjectForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.owner = current_user
+            rating.project = project
+            rating.save()
+        return redirect('rate_project')
+    else:
+        form = RateProjectForm()   
     
-    return render(request, 'rate_project.html', context)
+    return render(request, 'rate_project.html', {'project':project, 'form':form})

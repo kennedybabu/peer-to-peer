@@ -121,6 +121,10 @@ body > nav > div > div.navbar-right > a {
     /* height: 100%; */
 }
 
+body > nav > div > div.navbar-header > a {
+    color: black;
+}
+
 
 .reg form {
     max-width: 60%;

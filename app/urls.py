@@ -13,7 +13,7 @@ urlpatterns = [
     path('register_user', views.register_user, name='register_user'),
     path('view_profile/<int:id>', views.view_profile, name='view_profile'),
     path('projects/', views.projects, name='projects'),
-    path('rate_project/(<int:id>/)', views.rate_project, name='rate_project'),
+    path('rate_project/<int:id>', views.rate_project, name='rate_project'),
 
 ]
 if settings.DEBUG:

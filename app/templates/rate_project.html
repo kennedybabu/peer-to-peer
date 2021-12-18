@@ -3,5 +3,16 @@
 {% block content %} 
     .lets go run with tigers and shit
     <p>{{ project.owner.username }}</p>
-    <img src="{{ project.image.url }}" alt="project image">
+    <!-- <img src="{{ project.image.url }}" alt="project image"> -->
+    <p>{{ project.live_link }}</p>
+
+
+    <div>
+        <form action="{% url 'rate_project' project.id %}" method="post">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            <input type="submit" value='rate' class="btn btn-sm btn-success">
+        </form>
+    </div>
 {% endblock %}

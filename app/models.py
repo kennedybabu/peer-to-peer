@@ -76,6 +76,13 @@ class Rate(models.Model):
     content_vote = models.IntegerField(default=0, validators=[MaxValueValidator(10), MinValueValidator(0)])
     comment = models.TextField()
 
+
+    def save_rating(self):
+        self.save()
+
+    def delete_rating(self):
+        self.delete()
+        
     def __str__(self):
         return self.owner.username
 
