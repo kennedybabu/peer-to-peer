@@ -1,12 +1,15 @@
 # from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
+from django.http.response import Http404
 from django.shortcuts import redirect, render
-from .models import Profile, Project
+from .models import Profile, Project, Rate
 from django.contrib.auth.forms import UserCreationForm
-from .forms import NewProjectForm
+from .forms import NewProjectForm, RateProjectForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib  import messages
+from django.core.exceptions import ObjectDoesNotExist
+
 
 
 # Create your views here.
@@ -85,3 +88,14 @@ def new_project(request):
 def projects(request):
     projects = Project.objects.all()
     return render(request, 'projects.html', {'projects':projects})
+
+def rate_project(request, id):
+    try:
+        project = Project.objects.get(id = id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    context = {
+        'project':project,
+    }
+    
+    return render(request, 'rate_project.html', context)

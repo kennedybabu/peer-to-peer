@@ -31,6 +31,12 @@ span {
 }
 
 
+body > nav > div > div.navbar-right > a {
+    text-decoration: none;
+    color: black;
+    margin-right: 1rem;
+}
+
 .intro {
     max-width: 100vw;
 }
@@ -124,6 +130,8 @@ span {
 .projects-container {
     background-color: azure;
 }
+
+
 
 
 
