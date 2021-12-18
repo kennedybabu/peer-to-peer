@@ -96,6 +96,8 @@ def rate_project(request, id):
         project = Project.objects.get(id = id)
     except ObjectDoesNotExist:
         raise Http404()
+    ratings = project.rate_set.all()
+
     if request.method == 'POST':
         form = RateProjectForm(request.POST)
         if form.is_valid():
@@ -103,8 +105,8 @@ def rate_project(request, id):
             rating.owner = current_user
             rating.project = project
             rating.save()
-        return redirect('rate_project')
+            return redirect('home')
     else:
         form = RateProjectForm()   
     
-    return render(request, 'rate_project.html', {'project':project, 'form':form})
+    return render(request, 'rate_project.html', {'project':project, 'form':form , 'ratings':ratings})

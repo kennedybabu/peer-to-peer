@@ -6,6 +6,17 @@
     <!-- <img src="{{ project.image.url }}" alt="project image"> -->
     <p>{{ project.live_link }}</p>
 
+    {% if ratings %} 
+
+        helloo
+
+        {% for rating in ratings %} <p>{{ rating.comment }}</p>{% endfor %}
+    {% else %} 
+
+        sorry bruh
+
+    {% endif %}
+
 
     <div>
         <form action="{% url 'rate_project' project.id %}" method="post">
