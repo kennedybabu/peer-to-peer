@@ -18,6 +18,7 @@ body {
 .navbar {
     height: 8vh;
     padding: 0 3rem;
+    background-color: white;
 }
 
 .navbar-brand {
@@ -25,7 +26,6 @@ body {
     font-weight: 600;
     color: var(--dark-blue)
 }
-
 
 
 #navbarNav {
@@ -37,6 +37,11 @@ body {
 #navbarNav > ul {
     z-index: 1000;
 }
+
+#navbarNav > ul > li > a {
+    color: black;
+}
+
 
 span {
     color: var(--ligter-red);
@@ -104,12 +109,20 @@ body > div > div {
 
 
 .card {
-    border: none;
+    border: 1px solid grey;
+    height: 450px;
+    border-radius: 0;
+    padding: 0;
 }
 
 .card-img-top {
-    height: 50%;
+    height: 60%;
     width: 100%;
+}
+
+
+body > div {
+    min-height: 100vh;
 }
 
 
@@ -119,8 +132,24 @@ body > div > div {
 }
 
 .login-wrapper {
-    /* width: 60%; */
     margin: 0 auto;
+    min-height: 100%
+}
+
+
+body > div > div > div.col-md-6.login-wrapper > div {
+    min-height: 100%
+}
+
+
+.log-tray {
+    margin: 0 auto;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    box-shadow: -4px 5px 22px -9px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 5px 22px -9px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 5px 22px -9px rgba(0,0,0,0.75);
 }
 
 
@@ -134,14 +163,23 @@ body > div.container.card-holder > div {
 }
 
 
+.login-wrapper {
+    min-height: 90vh;
+}
+
+
 .left {
     background-color: aqua;
-    height: 100%;
+    min-height: 90vh;
+    background-size: cover;
+    background-position: center;
+    background: linear-gradient(to right bottom, rgba(137, 245, 14, 0.884), rgba(108, 216, 180, 0.301)),
+    url(https://images.unsplash.com/photo-1617173944883-6ffbd35d584d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80);
+
 }
 
 .reg-left {
     background-color: aqua;
-    /* height: 100%; */
 }
 
 body > nav > div > div.navbar-header > a {
