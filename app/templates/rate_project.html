@@ -8,8 +8,8 @@
                 <div>
                     <img src="{{ project.image.url }}" alt="">
                 </div>
-                <p>{{ project.owner.username }}</p>
-                <p>{{ project.live_link }}</p>
+                <a href="{{ project.live_link }}"><img class="linkies" src="https://res.cloudinary.com/dblrvhi8r/image/upload/v1640095571/globe_zb9oat.png" alt="link"></a>
+                <a target="_blank" href="{{ project.repo_link }}">visit repository</a>
             </div>
             <div class="form-div col-md-6">
                 <div>
@@ -53,10 +53,8 @@
                     </div>
                     
                     {% endfor %}
-                    {% else %} 
-
-                        sorry bruh
-
+                    {% else %}
+                        <p>there are currently no ratings for this project, create one...</p>
                     {% endif %}
 
                 </div>
