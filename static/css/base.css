@@ -26,9 +26,12 @@ body {
     color: var(--dark-blue)
 }
 
+
+
 #navbarNav {
     z-index: 1000;
-    background-color: azure;
+    display: flex;
+    justify-content: right;
 }
 
 #navbarNav > ul {
