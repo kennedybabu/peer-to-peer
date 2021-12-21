@@ -22,15 +22,34 @@
                 </div>
                 <div class="ratings">
 
-                    {% if ratings %} 
-
-                        helloo
+                    {% if ratings %}                        
 
                     {% for rating in ratings %}
                     
-                    <p>{{ rating.average_score }} {{ rating.design_vote }} {{ rating.usability_vote }} {{ rating.content_vote }} {{ rating.comment }}</p>
-                    <div class="rate">
+                    
+                    <div class="rate container">
+                       <div class="row">
+                        <div class="info col-md-5">
+                            <small>"{{ rating.comment }}"_</small><br>
+                            <span class="badge badge-pill badge-danger">{{ rating.owner.username }}</span>
+                        </div>
+                        <div class="scores col-md-7">
+                            <div class="score average">
+                                {{ rating.average_score }}
+                            </div>
+                            <div class="score">
+                                {{ rating.design_vote }}
+                            </div>
 
+                            <div class="score">
+                                {{ rating.usability_vote }}
+                            </div>
+
+                            <div class="score">
+                                {{ rating.content_vote }}
+                            </div>
+                        </div>
+                       </div>
                     </div>
                     
                     {% endfor %}

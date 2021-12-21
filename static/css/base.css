@@ -186,6 +186,7 @@ body > div.container.card-holder > div {
 
 }
 
+
 body > nav > div > div.navbar-header > a {
     color: black;
 }
@@ -196,13 +197,18 @@ body > nav > div > div.navbar-header > a {
     margin: 0 auto;
 }
 
+
 .projects-container {
     background-color: azure;
+    display: flex;
+    justify-content: flex-start;
 }
+
 
 .info img {
     max-width: 100%;
 }
+
 
 .lower-container {
     text-align: center;
@@ -210,9 +216,35 @@ body > nav > div > div.navbar-header > a {
 }
 
 .rate {
-    height: 60px;
-    width: 80%;
+    height: 140px;
+    width: 90%;
     background-color: azure;
+    display: flex;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+
+.average {
+    color: var(--ligter-red);
+    border: 3px solid var(--ligter-red);
+}
+
+
+.scores {
+    display: flex;
+    align-items: center;
+}
+
+.score {
+    height: 40px;
+    width: 40px;
+    border: 2px solid grey;
+    margin-left: 1rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -289,14 +321,18 @@ box-shadow: inset 0 0 0 200px rgba(255,255,255,0.08);
     .navbar {
         padding: 0 1rem;
     }
+
+
     body > section > div > div.overlay-text > h3 {
         font-size: 18px;
         max-width: 80%;
     }
 
+
     body > section > div > div.button-tray > a {
         padding: .3rem .7rem;
     }
+
 
     body > section > div > div.overlay-text {
         display: flex;
