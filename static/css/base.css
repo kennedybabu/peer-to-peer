@@ -200,6 +200,20 @@ body > nav > div > div.navbar-header > a {
     background-color: azure;
 }
 
+.info img {
+    max-width: 100%;
+}
+
+.lower-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.rate {
+    height: 60px;
+    width: 80%;
+    background-color: azure;
+}
 
 
 

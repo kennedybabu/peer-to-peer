@@ -89,7 +89,7 @@ class Rate(models.Model):
     @property
     def average_score(self):
         average = (self.design_vote + self.content_vote + self.usability_vote) /3
-        return average
+        return round(average, 1)
 
 
 
