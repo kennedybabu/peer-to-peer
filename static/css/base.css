@@ -26,6 +26,15 @@ body {
     color: var(--dark-blue)
 }
 
+#navbarNav {
+    z-index: 1000;
+    background-color: azure;
+}
+
+#navbarNav > ul {
+    z-index: 1000;
+}
+
 span {
     color: var(--ligter-red);
 }
@@ -84,6 +93,12 @@ body > nav > div > div.navbar-right > a {
 .button-tray {
     display: flex;
 }
+
+
+body > div > div {
+    justify-content: center;
+}
+
 
 .card {
     border: none;

@@ -10,7 +10,7 @@
 
         helloo
 
-        {% for rating in ratings %} <p>{{ rating.comment }}</p>{% endfor %}
+        {% for rating in ratings %} <p>{{ rating.average_score }} {{ rating.design_vote }} {{ rating.usability_vote }} {{ rating.content_vote }} {{ rating.comment }}</p>{% endfor %}
     {% else %} 
 
         sorry bruh
