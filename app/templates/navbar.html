@@ -19,7 +19,7 @@
             <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="#">hello, {{ user.username }}</a>
+            <a class="nav-link" href="{% url 'view_profile' user.id %}">hello, {{ user.username }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'new_project' %}">post project</a>

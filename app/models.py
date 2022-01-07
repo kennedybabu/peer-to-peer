@@ -1,52 +1,20 @@
+from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.fields import DateTimeField
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-#     username = models.CharField(max_length=30)
-#     date_joined = models.DateTimeField(auto_now_add=True)
-#     bio = models.TextField(blank=True)
-#     profile_photo = models.ImageField(upload_to='posts/', null=True)
-
-#     def save_profile(self):
-#         '''
-#         save profile
-#         '''
-#         self.save()
-
-#     def delete_profile(self):
-#         '''
-#         delete profile
-#         '''
-#         self.delete()
-
-#     def update_profile(self, new):
-#         '''
-#         method that will update the profile
-#         '''
-#         self.username = new.username
-#         self.bio = new.bio
-#         self.profile_photo = new.profile_photo
-#         self.save()  
-
-
-#     @receiver(post_save,sender=User)
-#     def create_user_profile(sender,instance,created, **kwargs):
-#         if created:
-#             Profile.objects.create(user_id=instance)
-
-#     @receiver(post_save,sender=User)
-#     def save_profile(sender,instance, **kwargs):
-#         instance.profile.save()
-
-#     def __str__(self):
-#         return self.username 
-
+class User(AbstractUser):
+    name = models.CharField(max_length=200, null=True)
+    email = models.EmailField(null=True, unique=True)
+    bio = models.TextField(null=True)
+    profile_pic = models.ImageField(null=True, default='user.png')
+    USERNAME_FIELD = 'username'
+    REDIRECT_FIELDS = []
 
 class Project(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -1,4 +1,4 @@
-from .models import Project, Rate
+from .models import Project, Rate, User
 from django import forms
 
 class NewProjectForm(forms.ModelForm):

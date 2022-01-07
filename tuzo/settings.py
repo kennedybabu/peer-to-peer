@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+
+AUTH_USER_MODEL = 'app.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -86,6 +89,8 @@ WSGI_APPLICATION = 'tuzo.wsgi.application'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# MEDIA_ROOT = BASE_DIR / 'static/images'
 
 
 # Database
@@ -141,3 +146,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
+
+

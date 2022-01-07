@@ -3,11 +3,14 @@
 
 {% block content %} 
 
-haiya...
+<div class="container">  
 
-{% for profile in profiles %}
+        <h1> {{ user}}</h1>
+        <div class="user-profile my-2">
+            <img src="{{ user.profile_pic.url }}" alt="">
+        </div>
 
-<h1> {{ profile.username }}</h1>
-{% endfor %}
+
+</div>
 
 {% endblock %}
