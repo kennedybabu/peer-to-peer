@@ -225,6 +225,17 @@ body > nav > div > div.navbar-header > a {
     margin-top: 1rem;
 }
 
+
+body > div > div {
+    padding-top: 1.5rem;
+}
+
+
+body > div > div > div.form-div.col-md-6 > div.ratings > div > div > div.scores.col-md-7 {
+    width: auto;
+}
+
+
 .rate {
     height: 140px;
     width: 90%;
@@ -232,6 +243,17 @@ body > nav > div > div.navbar-header > a {
     display: flex;
     margin-top: 1rem;
     padding: 1rem;
+
+    box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
+    -webkit-box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
+    -moz-box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
+}
+
+
+body > div > div > div.info.col-md-6 > div > img {
+    box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
+    -webkit-box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
+    -moz-box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
 }
 
 
@@ -284,7 +306,7 @@ body > div > div > div.info.col-md-6 > a:nth-child(2) > img {
     .reg {
         background-position: center;
         background-size: cover;
-        background-image: linear-gradient(to right bottom, rgba(137, 245, 14, 0.884), rgba(108, 216, 180, 0.301)),
+        background-image: linear-gradient(to right bottom, rgba(140, 189, 84, 0.781), rgba(108, 216, 180, 0.301)),
     url(https://images.unsplash.com/photo-1614278390641-835b276fab2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80);
  
     }

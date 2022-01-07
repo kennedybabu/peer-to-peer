@@ -6,50 +6,50 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.fields import DateTimeField
 
 # Create your models here.
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    username = models.CharField(max_length=30)
-    date_joined = models.DateTimeField(auto_now_add=True)
-    bio = models.TextField(blank=True)
-    profile_photo = models.ImageField(upload_to='posts/', null=True)
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+#     username = models.CharField(max_length=30)
+#     date_joined = models.DateTimeField(auto_now_add=True)
+#     bio = models.TextField(blank=True)
+#     profile_photo = models.ImageField(upload_to='posts/', null=True)
 
-    def save_profile(self):
-        '''
-        save profile
-        '''
-        self.save()
+#     def save_profile(self):
+#         '''
+#         save profile
+#         '''
+#         self.save()
 
-    def delete_profile(self):
-        '''
-        delete profile
-        '''
-        self.delete()
+#     def delete_profile(self):
+#         '''
+#         delete profile
+#         '''
+#         self.delete()
 
-    def update_profile(self, new):
-        '''
-        method that will update the profile
-        '''
-        self.username = new.username
-        self.bio = new.bio
-        self.profile_photo = new.profile_photo
-        self.save()  
+#     def update_profile(self, new):
+#         '''
+#         method that will update the profile
+#         '''
+#         self.username = new.username
+#         self.bio = new.bio
+#         self.profile_photo = new.profile_photo
+#         self.save()  
 
 
-    @receiver(post_save,sender=User)
-    def create_user_profile(sender,instance,created, **kwargs):
-        if created:
-            Profile.objects.create(user_id=instance)
+#     @receiver(post_save,sender=User)
+#     def create_user_profile(sender,instance,created, **kwargs):
+#         if created:
+#             Profile.objects.create(user_id=instance)
 
-    @receiver(post_save,sender=User)
-    def save_profile(sender,instance, **kwargs):
-        instance.profile.save()
+#     @receiver(post_save,sender=User)
+#     def save_profile(sender,instance, **kwargs):
+#         instance.profile.save()
 
-    def __str__(self):
-        return self.username 
+#     def __str__(self):
+#         return self.username 
 
 
 class Project(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     date_added = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=250)
