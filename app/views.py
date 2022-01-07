@@ -4,12 +4,13 @@ from django.http import HttpResponse
 from django.http.response import Http404
 from django.shortcuts import redirect, render
 from .models import  Project, Rate
-# from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from .forms import NewProjectForm, RateProjectForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib  import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
+
 
 
 
@@ -70,9 +71,30 @@ def home(request):
 #     except:
 #         messages.warning(request, 'Sorry, but it seems the profile is not set up')
 #         return redirect('home')
+
+def register_user(request):
+    form = UserCreationForm()
+    
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'an error occurred during registration')
+
+    context = {
+        'form':form
+    }
+    return render(request, 'registration/register_user.html', context)
+
+
 def login_user(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        username = request.POST.get('username').lower()
         password = request.POST.get('password')
 
         try:
