@@ -55,6 +55,7 @@ body > nav > div > div.navbar-right > a {
     text-decoration: none;
     color: black;
     margin-right: 1rem;
+    font-weight: 500;
 }
 
 
@@ -98,6 +99,7 @@ body > nav > div > div.navbar-right > a {
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-height: 40vh;
 }
 
 
@@ -117,10 +119,14 @@ body > div > div {
 
 
 .card {
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     height: 450px;
-    border-radius: 0;
+    border-radius: 2px;
     padding: 0;
+
+    box-shadow: -4px 5px 13px -7px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 5px 13px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 5px 13px -7px rgba(0,0,0,0.75);
 }
 
 
@@ -155,7 +161,11 @@ body > div > div > div.col-md-6.login-wrapper > div {
 .log-tray {
     margin: 0 auto;
     align-items: center;
+    justify-content: center;
     padding: 1rem 2rem;
+    width: 350px;
+    height: 300px;
+    text-align: center;
 
     box-shadow: -4px 5px 22px -9px rgba(0,0,0,0.75);
 -webkit-box-shadow: -4px 5px 22px -9px rgba(0,0,0,0.75);
@@ -202,6 +212,16 @@ body > nav > div > div.navbar-header > a {
 }
 
 
+body > nav > div > div.navbar-header > a:hover {
+    color: black;
+}
+
+
+.navbar-nav a {
+    font-weight: 500;
+}
+
+
 .reg form {
     max-width: 60%;
     margin: 0 auto;
@@ -211,7 +231,12 @@ body > nav > div > div.navbar-header > a {
 .projects-container {
     background-color: azure;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+}
+
+
+.project-object {
+    width: 450px;
 }
 
 
@@ -236,13 +261,24 @@ body > div > div > div.form-div.col-md-6 > div.ratings > div > div > div.scores.
 }
 
 
+.project-owner img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid tomato;
+}
+
+
 .rate {
-    height: 140px;
+    height: auto;
     width: 90%;
     background-color: azure;
     display: flex;
     margin-top: 1rem;
-    padding: 1rem;
+    padding:1.5rem  1rem;
+    margin-bottom: 1rem;
+    flex-direction: column;
+   
 
     box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
     -webkit-box-shadow: -4px 5px 19px -7px rgba(0,0,0,0.47);
@@ -290,6 +326,11 @@ body > div > div > div.info.col-md-6 > a:nth-child(2) > img {
     width: 100px;
     height: 100px;
     border-radius: 50px;
+}
+
+
+body > div.intro-text {
+    height: 40vh;
 }
 
 

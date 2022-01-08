@@ -9,6 +9,8 @@ from .forms import NewProjectForm, RateProjectForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib  import messages
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -18,6 +20,7 @@ def logoutUser(request):
     return redirect('login')        
 
 
+@login_required(login_url='login')
 def home(request):
     return render(request, 'home.html')
 
@@ -67,6 +70,7 @@ def login_user(request):
     return render(request, 'login.html', context)
 
 
+@login_required(login_url='login')
 def view_profile(request , pk):
     user = User.objects.get(id=pk)
     projects = user.project_set.all()
@@ -77,7 +81,7 @@ def view_profile(request , pk):
     return render(request, 'profile.html', context)
 
 
-
+@login_required(login_url='login')
 def new_project(request):
     current_user = request.user
     if request.method == "POST":
@@ -92,11 +96,13 @@ def new_project(request):
     return render(request, 'new_project.html', {'form':form})
 
 
+@login_required(login_url='login')
 def projects(request):
     projects = Project.objects.all()
     return render(request, 'projects.html', {'projects':projects})
 
 
+@login_required(login_url='login')
 def rate_project(request, id):
     current_user = request.user
     try:

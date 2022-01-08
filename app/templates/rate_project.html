@@ -32,7 +32,8 @@
                        <div class="row">
                         <div class="info col-md-5">
                             <small>"{{ rating.comment }}"_</small><br>
-                            <span class="badge badge-pill badge-danger">{{ rating.owner.username }}</span>
+                            <span class="badge badge-pill badge-danger">{{ rating.owner.username }}</span><br>
+                            <small>{{ rating.created |timesince }} ago</small>
                         </div>
                         <div class="scores col-md-7">
                             <div class="score average">
