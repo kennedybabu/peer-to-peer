@@ -73,9 +73,11 @@ def login_user(request):
 @login_required(login_url='login')
 def view_profile(request , pk):
     user = User.objects.get(id=pk)
+    posts = Project.objects.all()
     projects = user.project_set.all()
     context = {
-        'projetcs':projects
+        'projetcs':projects,
+        'posts':posts
     }
    
     return render(request, 'profile.html', context)

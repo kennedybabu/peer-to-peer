@@ -322,6 +322,11 @@ body > div > div > div.info.col-md-6 > a:nth-child(2) > img {
 }
 
 
+.user-profile {
+    padding-left: 1.5rem;
+}
+
+
 .user-profile img {
     width: 100px;
     height: 100px;
