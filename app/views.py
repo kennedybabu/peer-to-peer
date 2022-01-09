@@ -5,7 +5,7 @@ from django.http.response import Http404
 from django.shortcuts import redirect, render
 from .models import  Project, Rate, User
 # from django.contrib.auth.forms import UserCreationForm
-from .forms import NewProjectForm, RateProjectForm, MyUserCreationForm
+from .forms import NewProjectForm, RateProjectForm, MyUserCreationForm, UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib  import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -77,10 +77,24 @@ def view_profile(request , pk):
     projects = user.project_set.all()
     context = {
         'projetcs':projects,
-        'posts':posts
-    }
-   
+        'posts':posts,
+        'user':user
+    }   
     return render(request, 'profile.html', context)
+
+
+def update_profile(request):
+    user = request.user
+    form = UserForm(instance=user)
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('view_profile', pk=user.id)
+    context = {
+        'form':form
+    }
+    return render(request, 'update_profile.html', context)
 
 
 @login_required(login_url='login')
