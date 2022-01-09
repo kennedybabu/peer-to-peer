@@ -15,7 +15,6 @@ Once registered, a user can post their projects to be reviewed and rated by othe
 
 ##### Setup Instructions and Installation
 
-
 To run the application locally;
 - create an empty folder in your machine
 - git clone the repo by *git clone repo-url*

@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-# import cloudinary
-# import cloudinary
-# from cloudinary.models import CloudinaryField
+import cloudinary
+from decouple import config, Csv
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,11 +34,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# cloudinary.config(
-#   cloud_name = config('CLOUDINARY_NAME'),
-#   api_key = config('CLOUDINARY_API_KEY'),
-#   api_secret = config('CLOUDINARY_SECRET')
-# )
 # Application definition
 
 INSTALLED_APPS = [
@@ -104,6 +100,13 @@ DATABASES = {
         'PASSWORD': 'new'
     }
 }
+
+
+cloudinary.config(
+  cloud_name = config('CLOUDINARY_NAME'),
+  api_key = config('CLOUDINARY_API_KEY'),
+  api_secret = config('CLOUDINARY_SECRET')
+)
 
 
 # Password validation

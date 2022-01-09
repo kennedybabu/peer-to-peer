@@ -6,13 +6,15 @@ from django.db.models.signals import post_save
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.fields import DateTimeField
 from django.contrib.auth.models import AbstractUser
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 class User(AbstractUser):
     name = models.CharField(max_length=200, null=True)
     email = models.EmailField(null=True, unique=True)
     bio = models.TextField(null=True)
-    profile_pic = models.ImageField(null=True, default='user.png')
+    profile_pic = CloudinaryField('images', null=True, default='user.png')
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
 
@@ -23,7 +25,7 @@ class Project(models.Model):
     description = models.CharField(max_length=250)
     repo_link = models.CharField(max_length=500)
     live_link = models.CharField(max_length=500, blank=True)
-    image = models.ImageField(upload_to='posts', null=True)
+    image = CloudinaryField('images', null=True)
 
     def save_project(self):
         self.save()

@@ -99,7 +99,7 @@ body > nav > div > div.navbar-right > a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    max-height: 40vh;
+    height: 40vh;
 }
 
 

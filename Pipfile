@@ -11,6 +11,7 @@ django-cloudinary-storage = "*"
 pillow = "*"
 cloudinary = "*"
 django-registration = "*"
+python-decouple = "*"
 
 [dev-packages]
 
