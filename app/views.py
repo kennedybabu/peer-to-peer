@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.http.response import Http404
 from django.shortcuts import redirect, render
 from .models import  Project, Rate, User
-# from django.contrib.auth.forms import UserCreationForm
 from .forms import NewProjectForm, RateProjectForm, MyUserCreationForm, UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib  import messages

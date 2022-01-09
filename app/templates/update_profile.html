@@ -2,16 +2,21 @@
 
 {% block content %} 
     
+<div class="container">
 
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    
-    <div class="form_action">
-        <a href="{{ request.META.HTTP_REFERER }}">cancel</a>
-        <button  type='submit' class="create-btn">update</button>
-    </div>
-</form>
+<div class="wrapper">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        
+        <div class="form_action">
+            <a href="{{ request.META.HTTP_REFERER }}">cancel</a>
+            <button  type='submit' class="create-btn">update</button>
+        </div>
+    </form>
+</div>
+
+</div>
 
 
 {% endblock %}
