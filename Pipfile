@@ -12,6 +12,9 @@ pillow = "*"
 cloudinary = "*"
 django-registration = "*"
 python-decouple = "*"
+django-heroku = "*"
+whitenoise = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
