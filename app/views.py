@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.http.response import Http404
 from django.shortcuts import redirect, render
 from .models import  Project, Rate, User
-from django.contrib.auth.forms import UserCreationForm
-from .forms import NewProjectForm, RateProjectForm
+# from django.contrib.auth.forms import UserCreationForm
+from .forms import NewProjectForm, RateProjectForm, MyUserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib  import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -26,10 +26,10 @@ def home(request):
 
 
 def register_user(request):
-    form = UserCreationForm()
+    form = MyUserCreationForm()
     
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -67,7 +67,7 @@ def login_user(request):
     context = {
 
     }
-    return render(request, 'login.html', context)
+    return render(request, 'registration/login.html', context)
 
 
 @login_required(login_url='login')

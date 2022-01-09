@@ -14,7 +14,7 @@ class User(AbstractUser):
     bio = models.TextField(null=True)
     profile_pic = models.ImageField(null=True, default='user.png')
     USERNAME_FIELD = 'username'
-    REDIRECT_FIELDS = []
+    REQUIRED_FIELDS = []
 
 class Project(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

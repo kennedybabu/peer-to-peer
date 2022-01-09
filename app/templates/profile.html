@@ -15,8 +15,10 @@
         <div class="col-md-7">
             posts
             {% for post in posts %}
-                <li>ok</li>
-            
+                <div class="profile-post">
+                    <p>{{post.name}}</p>
+                    <small>{{ post.date_added | timesince }}</small>  
+                </div>          
             {% endfor %}
         </div>
     </div>
